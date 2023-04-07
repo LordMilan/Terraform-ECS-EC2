@@ -3,7 +3,7 @@
 ## API ##
 resource "aws_ecs_task_definition" "task-definition-api" {
   family                = local.task_name_api
-  container_definitions = file(local.path, {
+  container_definitions = templatefile(local.path, {
     container_name    = "prod-enrollible-msg-center-API"
     awslogs-group     = "/ecs/qa-enrollible-msg-center-api"
     awslogs-region    = "ap-south-1"
@@ -24,7 +24,7 @@ resource "aws_ecs_task_definition" "task-definition-api" {
 ## UI ##
 resource "aws_ecs_task_definition" "task-definition-ui" {
   family                = local.task_name_ui
-  container_definitions = file(local.path, {
+  container_definitions = templatefile(local.path, {
     container_name    = "prod-enrollible-msg-center-UI"
     awslogs-group     = "/ecs/qa-enrollible-msg-center-ui"
     awslogs-region    = "ap-south-1"
