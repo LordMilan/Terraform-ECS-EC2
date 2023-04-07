@@ -1,0 +1,21 @@
+[
+    {
+      "name": "qa-enrollible-msg-center-UI",
+      "image": "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:qa-enrollible-msg-center-ui",
+      "cpu": 0,
+      "memoryReservation": 210,
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 80
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": { 
+          "awslogs-group" : "/ecs/qa-enrollible-msg-center-ui",
+          "awslogs-region": "ap-south-1"
+        }
+      }
+    }
+]
