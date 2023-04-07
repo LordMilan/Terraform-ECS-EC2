@@ -20,6 +20,9 @@ locals {
 
   ## Values for ASG and Capacity Provider##
   asg_configname          = "prod-msg-center"
+  min_size                  = 1
+  max_size                  = 3
+  desired_capacity          = 1
 
   ecs_instance_type       = "t3a.micro"
   ec2-sg-name             = "prod-msg-center-ec2-sg"

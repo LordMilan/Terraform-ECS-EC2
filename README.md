@@ -1,11 +1,13 @@
-# Provisioning VPC, ECS and ALB using Terraform
+# Note:
+- Existing VPC, ECR and Application Load balancer is used. New ones are not created. So, you need to provide their values in locals.tf.
 
-This paroject creates a simple infrastructure using Terraform and AWS cloud provider. It consists of:
-- Script to pull halopay api/ui code, build and push to ECR
+# 
+
+This project creates a simple infrastructure using Terraform and AWS cloud provider. It consists of:
+- Script to pull API and UI code, build and push to ECR repository
 - Highly Available Elastic Container Service (ECS) with services
 
-Note:
-- Existing VPC, ECR and Application Load balancer is used. New ones are not created. So, you need to provide their values in respective place.
+
 
 ## How to create the infrastructure?
 This example implies that you have already AWS account & CLI, Docker and Terraform CLI installed.

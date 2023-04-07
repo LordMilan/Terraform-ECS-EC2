@@ -28,7 +28,7 @@ resource "aws_security_group" "ec2-sg" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
+    security_groups = ["${data.aws_lb.existing.security_groups}"]
   }
   egress {
     from_port   = 0
@@ -65,9 +65,9 @@ EOF
 resource "aws_autoscaling_group" "asg" {
   name                      = local.asg_configname
   launch_configuration      = aws_launch_configuration.lc.name
-  min_size                  = 1
-  max_size                  = 3
-  desired_capacity          = 1
+  min_size                  = local.min_size
+  max_size                  = local.max_size
+  desired_capacity          = local.desired_capacity
   health_check_type         = "ELB"
   health_check_grace_period = 300
   vpc_zone_identifier       = local.public_subnets
