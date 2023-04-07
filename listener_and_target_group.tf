@@ -27,7 +27,6 @@ resource "aws_lb_listener_rule" "api" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.lb_target_group_api.arn
   }
-
   condition {
     host_header {
       values = ["${local.api_url}"]
