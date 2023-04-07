@@ -4,6 +4,7 @@ locals {
   
   ## Name for your cluster ##
   cluster_name            = "Production-Enroll-Message-Center"
+  container_insight       = "enabled"
 
   ## Values for VPC. VPC is not created by terraform here ##
   vpc_id                  = "vpc-a82893cd"
