@@ -12,10 +12,7 @@ locals {
   alb_listener_arn        = "arn:aws:elasticloadbalancing:us-east-1:551804445178:listener/app/Halopay-BlueGreen-Production/f94dae1570ae78a9/46d3ac22a81d48e6"
    
    #TG#
-  tg_name_api             = "${local.task_name_api}-tg"
   api_url                 = "prod-api-message.enrollible.com"
-
-  tg_name_ui              = "${local.task_name_ui}-tg"
   ui_url                  = "prod-message.enrollible.com"
 
   ## Values for ASG and Capacity Provider##
@@ -25,9 +22,6 @@ locals {
   desired_capacity          = 1
 
   ecs_instance_type       = "t3a.micro"
-  ec2-sg-name             = "${local.asg_configname}-ec2-sg"
-
-  capacity_provider_name  = "${local.asg_configname}-CP"
  
   ## Values for CloudWatch Log Group Names ##
   log_group_name_api      = "/ecs/prod-enrollible-msg-center-api"
@@ -37,14 +31,12 @@ locals {
    #API#
   task_name_api           = "prod-enrollible-msg-center-API"
   ecr_image_api           = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-api:qa-enrollible-msg-center-api"
-  awslogs-group_api       = local.log_group_name_api
   cpu_api                 = 0
   memoryReservation_api   = 256
 
    #UI#
   task_name_ui            = "prod-enrollible-msg-center-UI"
   ecr_image_ui            = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:qa-enrollible-msg-center-ui"
-  awslogs-group_ui        = local.log_group_name_ui
   cpu_ui                  = 0
   memoryReservation_ui    = 256
 
@@ -55,18 +47,12 @@ locals {
   awslogs-region          = "us-east-1"
 
   ## Values for ECS Service ##
-  service_name_api        = "${local.task_name_api}-service"
   container_numbers_api   = 1
-  container_name_api      = local.task_name_api
   container_port_api      = 80
   
-  service_name_ui         = "${local.task_name_ui}-service"
   container_numbers_ui    = 1
-  container_name_ui       = local.task_name_ui
   container_port_ui       = 80
 
-  ## IAM ##
-  iam_role_name_for_creating_EC2 = "ecs-instance-role-${local.asg_configname}"
 
   ## Container_definition File path ##
   path                    = "container-definitions/container_defn.json"
