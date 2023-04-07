@@ -54,6 +54,8 @@ locals {
   container_port_ui       = 80
 
   ## local-exec script files names ##
-   #Go to local-exec.tf and rename the files as required #
+   #Set up your script to pull code from Github repo, create .env files, etc for ui and api in build-files folder##
+   #Go to local-exec.tf and use your build files as required #
+   
 
 }
