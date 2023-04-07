@@ -5,14 +5,14 @@ resource "aws_lb_target_group" "lb_target_group_api" {
   port        = "80"
   protocol    = "HTTP"
   target_type = "instance"
-  vpc_id      = local.vpc_id
+  vpc_id      = data.aws_vpc.existing.id
   health_check {
     path                = "/"
     healthy_threshold   = 2
-    unhealthy_threshold = 10
+    unhealthy_threshold = 3
     timeout             = 60
     interval            = 300
-    matcher             = "403"
+    matcher             = "200,301,302"
   }
 }
 
@@ -27,11 +27,17 @@ resource "aws_lb_listener_rule" "api" {
     type             = "forward"
     target_group_arn = aws_lb_target_group.lb_target_group_api.arn
   }
+
   condition {
-    path_pattern {
-      values = ["/${local.service_name_api}*"]
+    host_header {
+      values = ["${local.api_url}"]
     }
   }
+  # condition {
+  #   path_pattern {
+  #     values = ["/${local.service_name_api}*"]
+  #   }
+  # }
 }
 
 ## Target Group for UI is created here ##
@@ -40,7 +46,7 @@ resource "aws_lb_target_group" "lb_target_group_ui" {
   port        = "80"
   protocol    = "HTTP"
   target_type = "instance"
-  vpc_id      = local.vpc_id
+  vpc_id      = data.aws_vpc.existing.id
   health_check {
     path                = "/"
     healthy_threshold   = 2
@@ -63,8 +69,13 @@ resource "aws_lb_listener_rule" "ui" {
     target_group_arn = aws_lb_target_group.lb_target_group_ui.arn
   }
   condition {
-    path_pattern {
-      values = ["/${local.service_name_ui}*"]
+    host_header {
+      values = ["${local.ui_url}"]
     }
   }
+  # condition {
+  #   path_pattern {
+  #     values = ["/${local.service_name_api}*"]
+  #   }
+  # }
 }
