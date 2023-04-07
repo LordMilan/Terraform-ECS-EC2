@@ -57,7 +57,7 @@ resource "aws_launch_configuration" "lc" {
   user_data                   = <<EOF
 #! /bin/bash
 #sudo apt-get update
-sudo echo "ECS_CLUSTER=${var.cluster_name}" >> /etc/ecs/ecs.config
+sudo echo "ECS_CLUSTER=${local.cluster_name}" >> /etc/ecs/ecs.config
 EOF
 }
 

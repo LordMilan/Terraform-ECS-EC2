@@ -1,6 +1,9 @@
 locals {
   ## Key-pair name ##
   key_name                = "enrollible-msg-center-prod"
+  
+  ## Name for your cluster ##
+  cluster_name            = "Production-Enroll-Message-Center"
 
   ## Values for VPC. VPC is not created by terraform here ##
   vpc_id                  = "vpc-a82893cd"

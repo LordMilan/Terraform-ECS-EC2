@@ -1,6 +1,6 @@
 ## Capacity Provider is added to ECS Cluster here ##
 resource "aws_ecs_cluster_capacity_providers" "cluster-cp" {
-  cluster_name = var.cluster_name
+  cluster_name = local.cluster_name
   capacity_providers = [aws_ecs_capacity_provider.cp.name]
   default_capacity_provider_strategy {
     base              = 1
