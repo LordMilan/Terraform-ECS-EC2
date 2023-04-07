@@ -16,6 +16,11 @@
 #   id = module.vpc.vpc_id
 # }
 
+
 data "aws_vpc" "existing" {
   id = local.vpc_id
+}
+
+data "vpc_subnet" "existing" {
+  subnets = local.public_subnets
 }
