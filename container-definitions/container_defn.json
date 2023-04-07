@@ -4,7 +4,7 @@
       "image": "${ecr_image}",
       "cpu": ${cpu},
       "memoryReservation": ${memoryReservation},
-      "essential": "${essential}",
+      "essential": ${essential},
       "portMappings": [
         {
           "containerPort": ${containerPort}
