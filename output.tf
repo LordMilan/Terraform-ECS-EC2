@@ -6,12 +6,12 @@ output "alb_dns" {
 
 ## Get API link ##
 output "api" {
-   value = "${data.aws_lb.existing.dns_name}/${local.service_name_api}"
+   value = "${local.api_url}"
  }
 
 ## Get UI link ##
 output "ui" {
-   value = "${data.aws_lb.existing.dns_name}/${local.service_name_ui}"
+   value = "${local.ui_url}"
  }
 
 
