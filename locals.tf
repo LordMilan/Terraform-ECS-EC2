@@ -52,7 +52,7 @@ locals {
   log_driver              = "awslogs"
   network_mode            = "bridge"
   essential               = "true"
-  awslogs-region          = "ap-south-1"
+  awslogs-region          = "us-east-1"
 
   ## Values for ECS Service ##
   service_name_api        = "prod-enrollible-msg-center-api-service"
