@@ -27,6 +27,16 @@ locals {
   ## ECS Tasks ##
   task_name_ui            = "prod-enrollible-msg-center-UI"
   task_name_api           = "prod-enrollible-msg-center-API"
+  awslogs-group_api       = "/ecs/qa-enrollible-msg-center-API"
+  awslogs-group_ui        = "/ecs/qa-enrollible-msg-center-UI"
+  awslogs-region          = "ap-south-1"
+  cpu_api                 = 0
+  cpu_ui                  = 0
+  memoryReservation_api   = 256
+  memoryReservation_ui    = 256
+  log_driver              = "awslogs"
+  network_mode            = "bridge"
+
 
   ## ECS Service ##
   service_name_api        = "prod-enrollible-msg-center-api-service"
@@ -38,6 +48,10 @@ locals {
   container_name_ui       = "prod-enrollible-msg-center-UI"
   container_port_ui       = 80
 
+  ## Details required ECR ##
+  ecr_image_api           = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-api:qa-enrollible-msg-center-api"
+  ecr_image_ui            = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:qa-enrollible-msg-center-ui"
+
   ## IAM ##
   iam_role_name_for_creating_EC2 = "ecs-instance-role-prod-enroll-msg-center"
 
@@ -45,6 +59,6 @@ locals {
   path                = "container-definitions/container_defn.json"
 
   #local-exec script files names##
-  # Go to local-exec.tf and rename the files as required #
+   #Go to local-exec.tf and rename the files as required #
 
 }
