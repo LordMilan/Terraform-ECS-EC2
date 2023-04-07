@@ -29,8 +29,8 @@ locals {
   task_name_api           = "prod-enrollible-msg-center-API"
   ecr_image_api           = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-api:qa-enrollible-msg-center-api"
   ecr_image_ui            = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:qa-enrollible-msg-center-ui"
-  awslogs-group_api       = "/ecs/qa-enrollible-msg-center-API"
-  awslogs-group_ui        = "/ecs/qa-enrollible-msg-center-UI"
+  awslogs-group_api       = "/ecs/${local.log_group_name_api}"
+  awslogs-group_ui        = "/ecs/${local.log_group_name_ui}"
   awslogs-region          = "ap-south-1"
   cpu_api                 = 0
   cpu_ui                  = 0
