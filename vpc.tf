@@ -19,5 +19,10 @@
 
 data "aws_vpc" "existing" {
   id = local.vpc_id
-  subnets = local.public_subnets
+  
+}
+
+data "aws_subnet" "existing" {
+  public_subnet = local.public_subnets
+  
 }
