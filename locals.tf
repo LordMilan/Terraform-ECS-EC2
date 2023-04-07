@@ -29,13 +29,13 @@ locals {
   
   ## Values for ECS Task Definition ##
    #API#
-  task_name_api           = "prod-enrollible-msg-center-API"
+  task_name_api           = "prod-enroll-msg-center-API"
   ecr_image_api           = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-api:qa-enrollible-msg-center-api"
   cpu_api                 = 0
   memoryReservation_api   = 256
 
    #UI#
-  task_name_ui            = "prod-enrollible-msg-center-UI"
+  task_name_ui            = "prod-enroll-msg-center-UI"
   ecr_image_ui            = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:qa-enrollible-msg-center-ui"
   cpu_ui                  = 0
   memoryReservation_ui    = 256
