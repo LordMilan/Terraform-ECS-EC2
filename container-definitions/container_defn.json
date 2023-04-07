@@ -2,7 +2,7 @@
     {
       "name": "${container_name}",
       "image": "${ecr_image}",
-      "cpu": "${CPU}",
+      "cpu": "${cpu}",
       "memoryReservation": "${memoryReservation}",
       "essential": "${essential}",
       "portMappings": [
