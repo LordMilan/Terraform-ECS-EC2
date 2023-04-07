@@ -36,6 +36,7 @@ locals {
   memoryReservation_ui    = 256
   log_driver              = "awslogs"
   network_mode            = "bridge"
+  essential               = "true"
 
 
   ## ECS Service ##
