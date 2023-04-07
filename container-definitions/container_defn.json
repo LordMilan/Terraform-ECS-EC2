@@ -2,12 +2,12 @@
     {
       "name": "${container_name}",
       "image": "${ecr_image}",
-      "cpu": "${cpu}",
-      "memoryReservation": "${memoryReservation}",
+      "cpu": ${cpu},
+      "memoryReservation": ${memoryReservation},
       "essential": "${essential}",
       "portMappings": [
         {
-          "containerPort": "${containerPort}"
+          "containerPort": ${containerPort}
         }
       ],
       "logConfiguration": {

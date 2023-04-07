@@ -14,7 +14,7 @@ resource "aws_ecs_task_definition" "task-definition-api" {
     essential         = "true"
     ecr_image         = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-api:qa-enrollible-msg-center-api"
   })
-  network_mode          = "bridge"
+  network_mode        = "bridge"
   tags = {
     "env"       = "prod"
     "createdBy" = "milan"
@@ -35,7 +35,7 @@ resource "aws_ecs_task_definition" "task-definition-ui" {
     essential         = "true"
     ecr_image         = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:qa-enrollible-msg-center-ui"
   })
-  network_mode          = "bridge"
+  network_mode        = "bridge"
   tags = {
     "env"       = "prod"
     "createdBy" = "milan"
