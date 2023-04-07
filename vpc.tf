@@ -15,3 +15,7 @@
 # data "aws_vpc" "main" {
 #   id = module.vpc.vpc_id
 # }
+
+data "aws_vpc" "existing" {
+  id = local.vpc_id
+}
