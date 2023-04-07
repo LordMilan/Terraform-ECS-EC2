@@ -1,4 +1,5 @@
 locals {
+  ## Key-pair name ##
   key_name                = "enrollible-msg-center-prod"
 
   ## Values for VPC. VPC is not created by terraform here ##
