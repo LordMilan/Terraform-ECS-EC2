@@ -19,6 +19,10 @@ locals {
   service_name_api        = "${local.task_name_api}-service"
   service_name_ui         = "${local.task_name_ui}-service"
 
+  ## Values for CloudWatch Log Group Names ##
+  log_group_name_api      = "/ecs/${local.task_name_api}"
+  log_group_name_ui       = "/ecs/${local.task_name_ui}"
+  
   ## IAM ##
   iam_role_name_for_creating_EC2 = "ecs-instance-role-${local.asg_configname}"
   

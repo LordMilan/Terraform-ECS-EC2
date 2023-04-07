@@ -23,11 +23,7 @@ locals {
 
   ecs_instance_type       = "t3a.micro"
  
-  ## Values for CloudWatch Log Group Names ##
-  log_group_name_api      = "/ecs/prod-enrollible-msg-center-api"
-  log_group_name_ui       = "/ecs/prod-enrollible-msg-center-ui"
-  
-  ## Values for ECS Task Definition ##
+   ## Values for ECS Task Definition ##
    #API#
   task_name_api           = "prod-enroll-msg-center-API"
   ecr_image_api           = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-api:qa-enrollible-msg-center-api"
