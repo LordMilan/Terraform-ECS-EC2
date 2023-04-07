@@ -70,7 +70,7 @@ resource "aws_autoscaling_group" "asg" {
   desired_capacity          = 1
   health_check_type         = "ELB"
   health_check_grace_period = 300
-  vpc_zone_identifier       = data.vpc_subnet.existing.subnets
+  vpc_zone_identifier       = data.aws_vpc.subnets
 
   #target_group_arns     = [aws_lb_target_group.lb_target_group_api.arn]
   protect_from_scale_in = false
