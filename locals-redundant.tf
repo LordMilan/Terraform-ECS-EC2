@@ -22,8 +22,11 @@ locals {
   ## Values for CloudWatch Log Group Names ##
   log_group_name_api      = "/ecs/${local.task_name_api}"
   log_group_name_ui       = "/ecs/${local.task_name_ui}"
-  
+
   ## IAM ##
   iam_role_name_for_creating_EC2 = "ecs-instance-role-${local.asg_configname}"
+
+  ## Container_definition File path. Same file is used for API and UI##
+  path                    = "container-definitions/container_defn.json"
   
 }

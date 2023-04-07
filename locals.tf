@@ -49,10 +49,6 @@ locals {
   container_numbers_ui    = 1
   container_port_ui       = 80
 
-
-  ## Container_definition File path ##
-  path                    = "container-definitions/container_defn.json"
-
   ## local-exec script files names ##
    #Go to local-exec.tf and rename the files as required #
 
