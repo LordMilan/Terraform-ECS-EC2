@@ -1,5 +1,5 @@
 resource "aws_iam_role" "ecs-instance-role" {
-  name = "ecs-instance-role-prod-enroll-msg-center"
+  name = local.iam_role_name_for_creating_EC2
   path = "/"
 
   assume_role_policy = <<EOF

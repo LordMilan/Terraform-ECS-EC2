@@ -42,8 +42,7 @@ locals {
   iam_role_name_for_creating_EC2 = "ecs-instance-role-prod-enroll-msg-center"
 
   #Container_definition File path##
-  path_api                = "container-definitions/qa-enrollible-msg-center.json"
-  path_ui                 = "container-definitions/qa-enrollible-msg-center-ui.json"
+  path                = "container-definitions/container_defn.json"
 
   #local-exec script files names##
   # Go to local-exec.tf and rename the files as required #
