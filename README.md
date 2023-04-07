@@ -2,10 +2,9 @@
 - Existing VPC, ECR and Application Load balancer is used. New ones are not created. So, you need to provide their values in locals.tf.
 
 # 
-
 This project creates a simple infrastructure using Terraform and AWS cloud provider. It consists of:
 - Script to pull API and UI code, build and push to ECR repository
-- Highly Available Elastic Container Service (ECS) with services
+- Terraform code which creates 
 
 
 
