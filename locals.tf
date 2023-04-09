@@ -30,7 +30,7 @@ locals {
    ## Values for ECS Task Definition ##
    #app#
   task_name_app            = "tic-tac-app"
-  ecr_image_app            = "tik-tac-app:latest 551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:tik-tac-app"
+  ecr_image_app            = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:tik-tac-app"
   cpu_app                  = 0
   memoryReservation_app    = 256
 
