@@ -2,6 +2,7 @@
 ## API ##
 resource "null_resource" "build_api" {
  provisioner "local-exec" {
+    on_failure = continue
     command = <<EOT
       aws ecr get-login-password --region ${local.awslogs-region} | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.${local.awslogs-region}.amazonaws.com
       sudo git clone -b ecs-final-test git@github.com:CloudTechService/enrollible-msg-center-api.git
