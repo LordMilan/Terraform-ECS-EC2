@@ -29,4 +29,6 @@ locals {
   ## Container_definition File path. Same file is used for API and UI##
   path                    = "container-definitions/container_defn.json"
   
+  ## Docker Build ##
+  docker_tag_api          = local.task_name_api
 }
