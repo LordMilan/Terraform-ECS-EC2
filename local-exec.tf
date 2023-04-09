@@ -31,7 +31,18 @@ VAULT_URL_DATABASE_SSO=https://vault.purenroll.com/v1/kv/data/secret/enroll-msg-
 ## UI ##
 resource "null_resource" "build_ui" {
  provisioner "local-exec" {
-    command = "sh qa-enrollible-msg-center-ui.sh > qa-enrollible-msg-center-ui.log 2>&1"
+    command = <<EOT
+      aws ecr get-login-password --region ${local.awslogs-region} | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.${local.awslogs-region}.amazonaws.com
+      sudo git clone -b qa git@github.com:CloudTechService/enrollible-msg-center-frontend.git
+cd enrollible-msg-center-frontend
+echo "VUE_APP_API_BASE=https://qa-api-message.enrollible.com/api/v1
+VUE_APP_API_SSO=https://qa-api-sso.enrollible.com/api
+VUE_APP_SSO=https://qa-sso.enrollible.com
+VUE_APP_SITE_KEY=fzVrDNpRAxufNFsWWtfN7aAf2LsCEkvMgIiCXWlf" > .env
+  sudo docker build -t ${local.docker_tag_ui} . || true
+  sudo docker tag ${local.docker_tag_ui}:latest ${local.ecr_image_ui}:${local.docker_tag_ui}
+  sudo docker push ${local.ecr_image_ui}:${local.docker_tag_ui}
+    EOT
     interpreter = ["/bin/bash", "-c"]
     working_dir = "./build-files"
   }

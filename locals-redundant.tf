@@ -31,4 +31,5 @@ locals {
   
   ## Docker Build ##
   docker_tag_api          = lower(local.task_name_api)
+  docker_tag_ui           = lower(local.task_name_ui)
 }
