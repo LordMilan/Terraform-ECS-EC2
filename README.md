@@ -15,7 +15,7 @@ This project creates a simple infrastructure using Terraform and AWS cloud provi
 ## How to create the infrastructure?
 This example implies that you have already AWS account & CLI, Docker and Terraform CLI installed.
 1. Clone and cd into this repository
-2. Set your desired customized value in locals.tf
+2. Set your desired customized value in locals.tf and main.tf
 3. terraform init
 4. terraform plan
 5. terraform apply
