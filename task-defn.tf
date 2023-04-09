@@ -11,7 +11,7 @@ resource "aws_ecs_task_definition" "task-definition-app" {
     memoryReservation = local.memoryReservation_app
     log_driver        = local.log_driver
     essential         = local.essential
-    ecr_image         = local.ecr_image_app
+    ecr_image         = "${aws_ecr_repository.app.repository_url}:${local.docker_tag_app}"
   })
   network_mode        = local.network_mode
   tags = {

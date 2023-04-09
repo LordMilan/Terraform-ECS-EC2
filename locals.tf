@@ -33,7 +33,7 @@ locals {
    ## Values for ECS Task Definition ##
    #app#
   task_name_app            = "tic-tac-app"
-  ecr_image_app            = "${aws_ecr_repository.app.repository_url}:${local.docker_tag_app}"
+  ecr_image_app            = aws_ecr_repository.app.repository_url
   cpu_app                  = 0
   memoryReservation_app    = 256
 
