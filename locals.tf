@@ -41,7 +41,7 @@ locals {
 
   ## Values for ECS Service ##
   container_numbers_app    = 1
-  container_port_app       = 80
+  container_port_app       = 3000
 
   ## local-exec script files names ##
    #Set up your script to pull code from Github repo, create .env files, etc for app in build-files folder##
