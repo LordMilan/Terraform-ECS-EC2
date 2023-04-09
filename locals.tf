@@ -7,8 +7,8 @@ locals {
   container_insight       = "enabled"
 
   ##Values for ECR ##
-  ecr_name_api            = local.task_name_api
-  ecr_name_ui             = local.task_name_ui
+  ecr_name_api            = lower(local.task_name_api)
+  ecr_name_ui             = lower(local.task_name_ui)
 
   ## Values for VPC. VPC is not created by terraform here ##
   vpc_id                  = "vpc-a82893cd"
