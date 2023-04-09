@@ -30,5 +30,5 @@ locals {
   path                    = "container-definitions/container_defn.json"
   
   ## Docker Build ##
-  docker_tag_api          = local.task_name_api
+  docker_tag_api          = lower(local.task_name_api)
 }
