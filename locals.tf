@@ -6,6 +6,10 @@ locals {
   cluster_name            = "Production-Enroll-Message-Center"
   container_insight       = "enabled"
 
+  ##Values for ECR ##
+  ecr_name_api            = local.task_name_api
+  ecr_name_ui             = local.task_name_ui
+
   ## Values for VPC. VPC is not created by terraform here ##
   vpc_id                  = "vpc-a82893cd"
   public_subnets          = ["subnet-f8c8108f","subnet-066c975f","subnet-e47268cc"]
@@ -31,13 +35,13 @@ locals {
    ## Values for ECS Task Definition ##
    #API#
   task_name_api           = "prod-enroll-msg-center-API"
-  ecr_image_api           = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-api:qa-enrollible-msg-center-api"
+  ecr_image_api           = aws_ecr_repository.api.repository_url
   cpu_api                 = 0
   memoryReservation_api   = 256
 
    #UI#
   task_name_ui            = "prod-enroll-msg-center-UI"
-  ecr_image_ui            = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:qa-enrollible-msg-center-ui"
+  ecr_image_ui            = aws_ecr_repository.ui.repository_url
   cpu_ui                  = 0
   memoryReservation_ui    = 256
 
