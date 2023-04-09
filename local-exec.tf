@@ -19,7 +19,7 @@ VAULT_URL_DATABASE_MESSAGE_CENTER_API=https://vault.purenroll.com/v1/kv/data/sec
 VAULT_URL_DATABASE_COR_API=https://vault.purenroll.com/v1/kv/data/secret/enroll-msg-api-qa-db2
 VAULT_URL_DATABASE_HEALTH_COMPANY=https://vault.purenroll.com/v1/kv/data/secret/enroll-msg-api-qa-db3
 VAULT_URL_DATABASE_SSO=https://vault.purenroll.com/v1/kv/data/secret/enroll-msg-api-qa-db4" > .env
-  sudo docker build -t ${local.docker_tag_api} .
+  sudo docker build -t ${local.docker_tag_api} . || :
   sudo docker tag ${local.docker_tag_api}:latest ${local.ecr_image_api}:${local.docker_tag_api}
   sudo docker push ${local.ecr_image_api}:${local.docker_tag_api}
     EOT
