@@ -24,4 +24,6 @@ locals {
   ## Container_definition File path. ##
   path                    = "container-definitions/container_defn.json"
   
+  ## Docker Build ##
+  docker_tag_app          = lower(local.task_name_app)
 }

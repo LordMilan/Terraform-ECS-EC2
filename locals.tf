@@ -6,6 +6,9 @@ locals {
   cluster_name            = "Tic-Tac-Cluster"
   container_insight       = "enabled"
 
+  ##Values for ECR ##
+  ecr_name_app            = lower(local.task_name_app)
+
   ## Values for VPC. VPC is not created by terraform here ##
   vpc_id                  = "vpc-a82893cd"
   public_subnets          = ["subnet-f8c8108f","subnet-066c975f","subnet-e47268cc"]
@@ -30,7 +33,7 @@ locals {
    ## Values for ECS Task Definition ##
    #app#
   task_name_app            = "tic-tac-app"
-  ecr_image_app            = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:tik-tac-app"
+  ecr_image_app            = aws_ecr_repository.app.repository_url
   cpu_app                  = 0
   memoryReservation_app    = 256
 

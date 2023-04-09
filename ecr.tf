@@ -1,13 +1,14 @@
-# resource "aws_ecr_repository" "this" {
-#   provider             = aws
-#   name                 = local.ecr_name
-#   image_tag_mutability = "MUTABLE"
+## ECR for APP ##
+resource "aws_ecr_repository" "app" {
+  provider             = aws
+  name                 = local.ecr_name_app
+  image_tag_mutability = "MUTABLE"
 
-#   image_scanning_configuration {
-#     scan_on_push = true
-#   }
+  image_scanning_configuration {
+    scan_on_push = true
+  }
 
-# }
+}
 
 # resource "aws_ecr_repository_policy" "policy" {
 #   repository = aws_ecr_repository.this.name
@@ -37,5 +38,4 @@
 # }
 # EOF
 #   depends_on = [aws_ecr_repository.this]
-
 # }
