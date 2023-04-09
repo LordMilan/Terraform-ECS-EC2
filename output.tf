@@ -4,14 +4,9 @@ output "alb_dns" {
    value = data.aws_lb.existing.dns_name
  }
 
-## Get API link ##
-output "api" {
-   value = "${local.api_url}"
- }
-
 ## Get UI link ##
-output "ui" {
-   value = "${local.ui_url}"
+output "app" {
+   value = "${local.app_url}"
  }
 
 

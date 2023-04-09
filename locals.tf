@@ -3,7 +3,7 @@ locals {
   key_name                = "enrollible-msg-center-prod"
   
   ## Name for your cluster ##
-  cluster_name            = "Production-Enroll-Message-Center"
+  cluster_name            = "Tic-Tac-Cluster"
   container_insight       = "enabled"
 
   ## Values for VPC. VPC is not created by terraform here ##
@@ -17,11 +17,10 @@ locals {
   alb_listener_arn        = "arn:aws:elasticloadbalancing:us-east-1:551804445178:listener/app/Halopay-BlueGreen-Production/f94dae1570ae78a9/46d3ac22a81d48e6"
    
    #TG#
-  api_url                 = "prod-api-message.enrollible.com"
-  ui_url                  = "prod-message.enrollible.com"
+  app_url                  = "prod-message.enrollible.com"
 
   ## Values for ASG and Capacity Provider##
-  asg_configname          = "Production-msg-center"
+  asg_configname          = "Tic-Tac"
   min_size                  = 1
   max_size                  = 3
   desired_capacity          = 1
@@ -29,33 +28,23 @@ locals {
   ecs_instance_type       = "t3a.micro"
  
    ## Values for ECS Task Definition ##
-   #API#
-  task_name_api           = "prod-enroll-msg-center-API"
-  ecr_image_api           = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-api:qa-enrollible-msg-center-api"
-  cpu_api                 = 0
-  memoryReservation_api   = 256
+   #app#
+  task_name_app            = "tic-tac-app"
+  ecr_image_app            = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-app:qa-enrollible-msg-center-app"
+  cpu_app                  = 0
+  memoryReservation_app    = 256
 
-   #UI#
-  task_name_ui            = "prod-enroll-msg-center-UI"
-  ecr_image_ui            = "551804445178.dkr.ecr.ap-south-1.amazonaws.com/qa-ui:qa-enrollible-msg-center-ui"
-  cpu_ui                  = 0
-  memoryReservation_ui    = 256
-
-   #Common for API and UI#
   log_driver              = "awslogs"
   network_mode            = "bridge"
   essential               = "true"
   awslogs-region          = "us-east-1"
 
   ## Values for ECS Service ##
-  container_numbers_api   = 1
-  container_port_api      = 80
-  
-  container_numbers_ui    = 1
-  container_port_ui       = 80
+  container_numbers_app    = 1
+  container_port_app       = 80
 
   ## local-exec script files names ##
-   #Set up your script to pull code from Github repo, create .env files, etc for ui and api in build-files folder##
+   #Set up your script to pull code from Github repo, create .env files, etc for app in build-files folder##
    #Go to local-exec.tf and use your build files as required #
    
 
